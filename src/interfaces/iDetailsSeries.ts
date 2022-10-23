@@ -11,6 +11,6 @@ export default interface iDetailsSeries {
   episode_number: number;
   title: string;
   summary: string;
-  thumbnail_url: string;
+  thumbnailUrl: string;
   video_code: string;
 }

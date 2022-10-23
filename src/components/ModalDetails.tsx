@@ -23,7 +23,7 @@ interface iProps {
 }
 
 export default function ModalDetails({ item }: iProps) {
-  const { id, type_id, title, summary } = item;
+  const { id, typeId, title, summary } = item;
 
   // Global state
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function ModalDetails({ item }: iProps) {
   const [dataSerie, setDataSerie] = useState(Array<iDetailsSeries>);
 
   // Properties
-  const isASeries: boolean = type_id === eContentType.SERIES;
+  const isASeries: boolean = typeId === eContentType.SERIES;
   const emptyOther: boolean = Object(dataOther).length === 0;
   const emptySeries: boolean = dataSerie.length === 0;
   const endPoint = isASeries ? "details-series/:id/" : "details-other/:id/";

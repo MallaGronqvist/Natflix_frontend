@@ -9,7 +9,7 @@ interface iProps {
 }
 
 export default function ItemCard({ item }: iProps) {
-  const { thumbnail_url } = item;
+  const { thumbnailUrl } = item;
 
   // Global state
   const { setModal } = useModal();
@@ -20,7 +20,7 @@ export default function ItemCard({ item }: iProps) {
   return (
     <article onClick={() => setModal(Modal)} className="item-card">
       <img
-        src={thumbnail_url}
+        src={thumbnailUrl}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
     </article>

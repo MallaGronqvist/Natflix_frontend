@@ -64,7 +64,7 @@ export default function AdminContent() {
   }
 
   function onDetails(item: iContent) {
-    const isASeries: boolean = item.type_id === eContentType.SERIES;
+    const isASeries: boolean = item.typeId === eContentType.SERIES;
     const pageDetailsOthers = `/admin-details-other/${item.id}`;
     const pageDetailsSeries = `/admin-details-series/${item.id}`;
     const pageToNavigate = isASeries ? pageDetailsSeries : pageDetailsOthers;

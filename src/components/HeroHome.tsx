@@ -10,25 +10,25 @@ interface iProps {
 }
 
 export default function BannerHome({ item }: iProps) {
-  const { banner_url, logo_url, title, summary } = item;
+  const { bannerUrl, logoUrl, title, summary } = item;
 
   // Global state
   const { setModal } = useModal();
 
   // Components
   const Heading = <h3>{title}</h3>;
-  const Logo = <img src={logo_url} className="logo" />;
+  const Logo = <img src={logoUrl} className="logo" />;
   const Modal = <ModalDetails item={item} />;
 
   return (
     <header className="hero hero-home">
       <img
         className="background-image"
-        src={banner_url}
+        src={bannerUrl}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
       <div className="content">
-        {logo_url === "" ? Heading : Logo}
+        {logoUrl === "" ? Heading : Logo}
         <p>{summary}</p>
         <button onClick={() => setModal(Modal)} className="button-gray">
           <img className="icon" src={IconInfo} />

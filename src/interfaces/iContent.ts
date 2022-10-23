@@ -1,10 +1,10 @@
 export default interface iContent {
   id: number;
   title: string;
-  type_id: number;
-  category_id: number;
+  typeId: number;
+  categoryId: number;
   summary: string;
-  logo_url: string;
-  banner_url: string;
-  thumbnail_url: string;
+  logoUrl: string;
+  bannerUrl: string;
+  thumbnailUrl: string;
 }

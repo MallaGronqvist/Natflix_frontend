@@ -41,6 +41,7 @@ export default function AdminDetailsOther() {
     setStatus(eStatus.ERROR);
   }
 
+  // This should probably be create instead of update?
   function onSubmit(event: FormEvent) {
     event.preventDefault();
     fakeFetch(endPoint + "update/", data)

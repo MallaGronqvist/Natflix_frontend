@@ -72,7 +72,7 @@ function contentDelete(id: number): string {
 function detailsOther(id: number): iDetailsOther {
   const content = Content.filter((item) => item.id === Number(id))[0];
 
-  switch (content.type_id) {
+  switch (content.typeId) {
     case eContentType.MOVIES:
       return SingleMovie;
     case eContentType.DOCUMENTARIES:
@@ -90,7 +90,7 @@ function detailsOtherUpdate(item: iDetailsOther): string {
 function detailsSeries(id: number): iDetailsSeries[] {
   const content = Content.filter((item) => item.id === Number(id))[0];
 
-  switch (content.type_id) {
+  switch (content.typeId) {
     case eContentType.SERIES:
       return SingleSerie;
     default:

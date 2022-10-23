@@ -10,20 +10,20 @@ interface iProps {
 }
 
 export default function HeroDetails({ item, videoCode, onClick }: iProps) {
-  const { banner_url, logo_url } = item;
+  const { bannerUrl, logoUrl } = item;
 
   // Components
-  const Logo = <img src={logo_url} className="logo" />;
+  const Logo = <img src={logoUrl} className="logo" />;
 
   return (
     <header className="hero hero-details">
       <img
         className="background-image"
-        src={banner_url}
+        src={bannerUrl}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
       <div className="content">
-        {logo_url && Logo}
+        {logoUrl && Logo}
         <button onClick={() => onClick(videoCode)} className="button-white">
           <img className="icon" src={IconPlay} />
           Play

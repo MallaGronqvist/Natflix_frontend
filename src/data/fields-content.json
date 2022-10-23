@@ -8,7 +8,7 @@
     "type": "text"
   },
   {
-    "key": "type_id",
+    "key": "typeId",
     "autoFocus": false,
     "label": "Type of content",
     "placeholder": "1 = series, 2 = movies, 3 = documentaries",
@@ -17,7 +17,7 @@
     "options": ["Series", "Movies", "Documentaries"]
   },
   {
-    "key": "category_id",
+    "key": "categoryId",
     "autoFocus": false,
     "label": "Type of category",
     "placeholder": "1: horror, 2: action, 3: comedy, 4: drama, 5: other",
@@ -34,7 +34,7 @@
     "type": "text"
   },
   {
-    "key": "logo_url",
+    "key": "logoUrl",
     "autoFocus": false,
     "label": "Logo URL",
     "placeholder": "www.google.com/logo.png",
@@ -43,7 +43,7 @@
     "imageWidth": 400
   },
   {
-    "key": "banner_url",
+    "key": "bannerUrl",
     "autoFocus": false,
     "label": "Banner URL",
     "placeholder": "www.google.com/banner.png",
@@ -52,7 +52,7 @@
     "imageWidth": 1280
   },
   {
-    "key": "thumbnail_url",
+    "key": "thumbnailUrl",
     "autoFocus": false,
     "label": "Thumbail URL",
     "placeholder": "www.google.com/thumbnail.png",

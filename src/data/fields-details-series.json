@@ -32,7 +32,7 @@
     "type": "text"
   },
   {
-    "key": "thumbnail_url",
+    "key": "thumbnailUrl",
     "autoFocus": true,
     "label": "Thumbnail",
     "placeholder": "www.google.com/thumbnail.png",

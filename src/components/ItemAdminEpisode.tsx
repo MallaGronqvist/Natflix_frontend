@@ -8,14 +8,14 @@ interface iProps {
 }
 
 export default function ItemAdminEpisode({ item, actions }: iProps) {
-  const { id, title, thumbnail_url } = item;
+  const { id, title, thumbnailUrl } = item;
   const [onUpdate, onDelete] = actions;
 
   return (
     <article className="item-admin">
       <span className="number">{id}</span>
       <img
-        src={thumbnail_url}
+        src={thumbnailUrl}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
       <h3>{title}</h3>
