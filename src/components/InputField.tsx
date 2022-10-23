@@ -9,15 +9,20 @@ interface iProps {
 export default function InputField({ field, state }: iProps) {
   const { key, autoFocus, label, placeholder, type, required } = field;
   const [value, setValue] = state;
+
   // Properties
   const initialValue = value[key] ?? "";
+
   // Methods
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
+
     changeValue(newValue);
   }
+
   function changeValue(newValue: any) {
     const clonedItem = { ...value };
+
     clonedItem[key] = newValue;
     setValue(clonedItem);
   }

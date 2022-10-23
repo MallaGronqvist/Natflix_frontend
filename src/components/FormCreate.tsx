@@ -41,7 +41,7 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
       <h2>Update information</h2>
       <ListInput fields={fields} state={[form, setForm]} />
       <hr />
-      <button className="button-gray">Update</button>
+      <button className="button-gray">Create</button>
       <button className="button-gray" onClick={() => setModal(null)}>
         Cancel
       </button>
