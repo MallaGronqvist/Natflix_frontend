@@ -1,5 +1,3 @@
-// Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { FormEvent, useEffect, useState } from "react";
@@ -22,13 +20,17 @@ export default function AdminDetailsOther() {
   const [data, setData] = useState("");
 
   // Properties
-  const endPoint: string = "details-other/:id/";
+  const endPoint: string = "http://localhost:8000/details-films/";
+  const METHOD = "PUT";
+  const HEADERS = { "Content-type": "application/json; charset=UTF-8" };
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint, code)
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
+    setStatus(eStatus.LOADING);
+    fetch(endPoint + code)
+    .then((response) => response.json())
+    .then((json) => onSuccess(json))
+    .catch((error) => onFailure(error));
   }, []);
 
   function onSuccess(data: string) {
@@ -41,11 +43,14 @@ export default function AdminDetailsOther() {
     setStatus(eStatus.ERROR);
   }
 
-  // This should probably be create instead of update?
   function onSubmit(event: FormEvent) {
     event.preventDefault();
-    fakeFetch(endPoint + "update/", data)
-      .then((response) => alert(response.data))
+    fetch(endPoint + "update/", {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(data),
+    })
+      .then((response) => alert(response))
       .catch(onFailure);
   }
 

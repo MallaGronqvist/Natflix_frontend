@@ -1,5 +1,3 @@
-// Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useEffect, useState } from "react";
@@ -29,13 +27,15 @@ export default function AdminDetailSeries() {
   const [data, setData] = useState(new Array<iDetailsSeries>());
 
   // Properties
-  const endPoint: string = "details-series/:id/";
+  const endPoint: string = "http://localhost:8000/details-series/";
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint, code)
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
+    setStatus(eStatus.LOADING);
+    fetch(endPoint + code)
+    .then((response) => response.json())
+    .then((json) => onSuccess(json))
+    .catch((error) => onFailure(error));
   }, []);
 
   function onSuccess(data: iDetailsSeries[]) {
