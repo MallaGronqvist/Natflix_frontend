@@ -20,12 +20,20 @@ export default function FormUpdate({ endPoint, fields, data }: iProps) {
   // Local state
   const [form, setForm] = useState(generateFields(fields, data));
 
+  // Properties
+  const METHOD = "PUT";
+  const HEADERS = { "Content-type": "application/json; charset=UTF-8" };
+
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    const editedItem = { ...form, id: data.id };
-
+    const editedItem = { ...form, id: data.id, contentId: data.contentId };
+    console.log(editedItem);
     event.preventDefault();
-    fakeFetch(endPoint + "update/", editedItem)
+    fetch(endPoint + "update", {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(editedItem),
+    })
       .then(onSuccess)
       .catch((error) => onFailure(error));
   }
