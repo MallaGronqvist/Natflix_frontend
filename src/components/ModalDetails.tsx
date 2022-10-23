@@ -1,5 +1,3 @@
-// Fake data
-import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useEffect, useState } from "react";

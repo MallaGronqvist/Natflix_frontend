@@ -1,5 +1,3 @@
-// Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useEffect, useState } from "react";
@@ -31,14 +29,15 @@ export default function AdminContent() {
   const [data, setData] = useState(new Array<iContent>());
 
   // Properties
-  const endPoint: string = "content/";
+  const endPoint: string = "http://localhost:8000/content/";
 
   // Methods
   useEffect(() => {
     setStatus(eStatus.LOADING);
-    fakeFetch(endPoint + code + "/")
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
+    fetch(endPoint + code)
+    .then((response) => response.json())
+    .then((json) => onSuccess(json))
+    .catch((error) => onFailure(error));
   }, [code]);
 
   function onSuccess(data: iContent[]) {
