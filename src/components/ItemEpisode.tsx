@@ -8,11 +8,11 @@ interface iProps {
 }
 
 export default function ItemEpisode({ item, onClick }: iProps) {
-  const { episode_number, title, summary, thumbnailUrl, video_code } = item;
+  const { episodeNumber, title, summary, thumbnailUrl, videoCode } = item;
 
   return (
-    <article className="item-episode" onClick={() => onClick(video_code)}>
-      <span className="number">{episode_number}</span>
+    <article className="item-episode" onClick={() => onClick(videoCode)}>
+      <span className="number">{episodeNumber}</span>
       <img
         src={thumbnailUrl}
         onError={(event) => (event.currentTarget.src = Placeholder)}

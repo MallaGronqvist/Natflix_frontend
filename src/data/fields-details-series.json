@@ -1,6 +1,6 @@
 [
   {
-    "key": "season_number",
+    "key": "seasonNumber",
     "autoFocus": true,
     "label": "Season number",
     "placeholder": "The season it belongs to",
@@ -8,7 +8,7 @@
     "type": "number"
   },
   {
-    "key": "episode_number",
+    "key": "episodeNumber",
     "autoFocus": true,
     "label": "Episode number",
     "placeholder": "The number of the episode",
@@ -41,7 +41,7 @@
     "imageWidth": 260
   },
   {
-    "key": "video_code",
+    "key": "videoCode",
     "autoFocus": true,
     "label": "Video code",
     "placeholder": "The 11 digits of a YouTube video",

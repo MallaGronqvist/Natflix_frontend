@@ -2,15 +2,15 @@
  * About:
  * The additional details a series need to its seasons and episodes in the content modal.
  *
- * Note: season_number and episode_number seen redundant but is to be clear that is just the number and not the whole data
+ * Note: seasonNumber and episodeNumber seen redundant but is to be clear that is just the number and not the whole data
  */
 export default interface iDetailsSeries {
   id: number;
-  content_id: number;
-  season_number: number;
-  episode_number: number;
+  contentId: number;
+  seasonNumber: number;
+  episodeNumber: number;
   title: string;
   summary: string;
   thumbnailUrl: string;
-  video_code: string;
+  videoCode: string;
 }

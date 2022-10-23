@@ -15,17 +15,17 @@ interface iProps {
 
 export default function EpisodeChooser({ episodes, onClick }: iProps) {
   // Local state
-  const [data, setData] = useState({ season_number: 1 });
+  const [data, setData] = useState({ seasonNumber: 1 });
 
   // Properties
   const numberOfSeasons = SeriesUtilities.getSeasonsNumber(episodes);
   const currentEpisodes = SeriesUtilities.getEpisodes(
     episodes,
-    data.season_number
+    data.seasonNumber
   );
   const inputSelectLabels = SeriesUtilities.getSeasonLabels(numberOfSeasons);
   const fields: iInputSelect = {
-    key: "season_number",
+    key: "seasonNumber",
     label: "",
     options: inputSelectLabels,
     type: "select",
