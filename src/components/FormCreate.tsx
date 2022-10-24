@@ -4,7 +4,6 @@ import { FormEvent, useState } from "react";
 // Project files
 import ListInput from "components/ListInput";
 import { useModal } from "state/ModalContext";
-import fakeFetch from "scripts/fakeFetch";
 
 interface iProps {
   endPoint: string;
@@ -18,10 +17,19 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
   // Local state
   const [form, setForm] = useState({});
 
+  // Properties
+  const METHOD = "POST";
+  const HEADERS = { "Content-type": "application/json; charset=UTF-8" };
+
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    fakeFetch(endPoint + "create/", form)
+    console.log(form);
+    fetch(endPoint + "create", {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(form),
+    })
       .then(onSuccess)
       .catch((error) => onFailure(error));
   }
@@ -38,7 +46,7 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      <h2>Update information</h2>
+      <h2>New information</h2>
       <ListInput fields={fields} state={[form, setForm]} />
       <hr />
       <button className="button-gray">Create</button>
