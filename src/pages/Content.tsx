@@ -1,5 +1,3 @@
-// Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useParams } from "react-router-dom";

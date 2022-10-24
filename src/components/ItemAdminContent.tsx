@@ -15,7 +15,7 @@ export default function ItemAdminContent({ item, actions }: iProps) {
     <article className="item-admin">
       <span className="number">{id}</span>
       <img
-        src={logoUrl}
+        src={logoUrl ?? ""}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
       <h3>{title}</h3>

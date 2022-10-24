@@ -46,7 +46,7 @@ export default function InputImage({ field, state }: iProps) {
         onChange={(event) => onChange(event)}
       />
       <img
-        src={imageURL}
+        src={imageURL ?? ""}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
     </label>
