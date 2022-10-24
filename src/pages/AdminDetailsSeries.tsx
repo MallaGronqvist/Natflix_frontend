@@ -49,7 +49,7 @@ export default function AdminDetailSeries() {
   }
 
   function onCreate() {
-    setModal(<FormCreate fields={Fields} endPoint={endPoint} />);
+    setModal(<FormCreate fields={Fields} endPoint={endPoint} contentId={code} contentType={"episode"} />);
   }
 
   function onUpdate(item: iDetailsSeries) {

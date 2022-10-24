@@ -51,7 +51,7 @@ export default function AdminContent() {
   }
 
   function onCreate() {
-    setModal(<FormCreate fields={Fields} endPoint={endPoint} />);
+    setModal(<FormCreate fields={Fields} endPoint={endPoint} contentId={0} contentType={"content"} />);
   }
 
   function onUpdate(item: iContent) {

@@ -8,9 +8,11 @@ import { useModal } from "state/ModalContext";
 interface iProps {
   endPoint: string;
   fields: Array<any>;
+  contentType: string;
+  contentId: any;
 }
 
-export default function FormUpdate({ endPoint, fields }: iProps) {
+export default function FormUpdate({ endPoint, fields, contentType, contentId }: iProps) {
   // Global state
   const { setModal } = useModal();
 
@@ -23,12 +25,17 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    var editedItem = {...form};
+    if(contentType == "episode") {
+      const contentNumber: number = contentId;
+      editedItem = { ...form, contentId: contentNumber }
+    }
     event.preventDefault();
-    console.log(form);
+    console.log(editedItem);
     fetch(endPoint + "create", {
       method: METHOD,
       headers: HEADERS,
-      body: JSON.stringify(form),
+      body: JSON.stringify(editedItem),
     })
       .then(onSuccess)
       .catch((error) => onFailure(error));
