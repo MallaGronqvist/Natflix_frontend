@@ -5,7 +5,6 @@ import { FormEvent, useState } from "react";
 import ListInput from "components/ListInput";
 import { generateFields } from "scripts/formUtilities";
 import { useModal } from "state/ModalContext";
-import fakeFetch from "scripts/fakeFetch";
 
 interface iProps {
   endPoint: string;

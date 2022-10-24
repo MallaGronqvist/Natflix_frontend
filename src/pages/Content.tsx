@@ -24,14 +24,15 @@ export default function Content() {
   const [data, setData] = useState(new Array<iContent>());
 
   // Properties
-  const endPoint = "content/";
+  const endPoint = "http://localhost:8000/content/";
 
   // Methods
   useEffect(() => {
     setStatus(eStatus.LOADING);
-    fakeFetch(endPoint + code + "/")
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
+    fetch(endPoint + code)
+    .then((response) => response.json())
+    .then((json) => onSuccess(json))
+    .catch((error) => onFailure(error));
   }, [code]);
 
   function onSuccess(data: iContent[]) {
