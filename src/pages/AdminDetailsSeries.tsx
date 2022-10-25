@@ -71,7 +71,6 @@ export default function AdminDetailSeries() {
 
   return (
     <div id="admin-detail-series" className="admin-pages">
-      <NavigationBarAdmin />
       <header>
         <h1>Admin details</h1>
       </header>

@@ -19,8 +19,20 @@ export default function InputField({ field, state }: iProps) {
   // Methods
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
+<<<<<<< HEAD
 
     changeValue(newValue);
+=======
+
+    changeValue(newValue);
+  }
+
+  function changeValue(newValue: any) {
+    const clonedItem = { ...value };
+
+    clonedItem[key] = newValue;
+    setValue(clonedItem);
+>>>>>>> e6a3a6bfe90302f8c5f9cae0c08a4480e75acddd
   }
 
   function changeValue(newValue: any) {

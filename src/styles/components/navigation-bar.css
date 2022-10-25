@@ -1,6 +1,7 @@
 .navigation-bar {
   display: flex; /* for aligning items using modern CSS */
   position: fixed;
+  left: 0;
   background-color: black;
   width: 100%;
   height: var(--navigation-bar);
@@ -19,6 +20,11 @@
   margin-right: var(--space-medium);
 }
 
-.navigation-bar .search {
+.navigation-bar .left-items {
   margin-left: auto; /* used with flex to push the item to the oposite side */
+}
+
+.navigation-bar .button-logout {
+  background-color: transparent;
+  font-weight: normal;
 }
