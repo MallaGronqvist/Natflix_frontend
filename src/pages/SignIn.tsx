@@ -19,22 +19,32 @@ export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
 
   // Properties
-  const endPoint = "login/";
+  const endPoint = "http://localhost:8000/login";
+  const METHOD = "POST";
+  const HEADERS = new Headers({
+    'Content-Type': 'application/x-www-form-urlencoded'
+  })
 
   // Methods
   function onSubmit(event: FormEvent): void {
+    console.log("Login attempt using:", form)
     event.preventDefault();
 
-    fakeFetch(endPoint, form)
-      .then((response) => onSuccess(response.data))
+    fetch(endPoint, {
+      method: METHOD,
+      headers: HEADERS,
+      body: "username="+form.email+"&password="+form.password,
+    })
+      .then((response) => onSuccess(response))
       .catch((error) => onFailure(error));
   }
 
-  function onSuccess(returningUser: iUser) {
+  function onSuccess(returningUser: any) {  // This was iUser
     console.log(returningUser);
 
     alert("Logged in");
     setUser(returningUser);
+    // navigate to home page?
   }
 
   function onFailure(error: string) {

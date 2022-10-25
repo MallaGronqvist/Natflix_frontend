@@ -17,21 +17,31 @@ export default function Login() {
   const { user, setUser } = useUser();
 
   // Local state
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
   // Properties
-  const endPoint = "register/";
+  const endPoint = "http://localhost:8000/register/";
+  const METHOD = "POST";
+  const HEADERS = new Headers({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  })
 
   // Methods
   function onSubmit(event: FormEvent): void {
+    console.log("Sign up attempt using:", form)
     event.preventDefault();
 
-    fakeFetch(endPoint, form)
-      .then((response) => onSuccess(response.data))
+    fetch(endPoint, {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(form),
+    })
+      .then((response) => onSuccess(response))
       .catch((error) => onFailure(error));
   }
 
-  function onSuccess(newUser: iUser) {
+  function onSuccess(newUser: any) {  //This was iUser
     console.log(newUser);
 
     alert("Welcome to Natflix!");
