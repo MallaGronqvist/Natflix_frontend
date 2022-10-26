@@ -1,9 +1,7 @@
-// Fake fetch
-import fakeFetch from "scripts/fakeFetch";
-
 // Node modules
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Project files
 import ListInput from "components/ListInput";
@@ -13,38 +11,43 @@ import { useUser } from "state/UserContext";
 
 export default function Login() {
   // Global state
+  const navigate = useNavigate();
+
+  // Global state
   const { user, setUser } = useUser();
 
   // Local state
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ email: "", pass: "" });
 
   // Properties
   const endPoint = "http://localhost:8000/login";
   const METHOD = "POST";
   const HEADERS = new Headers({
-    'Content-Type': 'application/x-www-form-urlencoded'
-  })
+    "Content-Type": "application/x-www-form-urlencoded",
+  });
 
   // Methods
   function onSubmit(event: FormEvent): void {
-    console.log("Login attempt using:", form)
+    console.log("Login attempt using:", form);
     event.preventDefault();
 
     fetch(endPoint, {
       method: METHOD,
       headers: HEADERS,
-      body: "username="+form.email+"&password="+form.password,
+      body: "username=" + form.email + "&password=" + form.pass,
     })
-      .then((response) => onSuccess(response))
+      .then((response) => onSuccess(response)) 
       .catch((error) => onFailure(error));
   }
 
-  function onSuccess(returningUser: any) {  // This was iUser
+  function onSuccess(returningUser:any) {
+    // This was iUser
     console.log(returningUser);
-
-    alert("Logged in");
-    setUser(returningUser);
-    // navigate to home page?
+    if (!returningUser.url.includes("error")) {
+      alert("Logged in");
+      setUser(returningUser);
+   }
+    navigate("/");
   }
 
   function onFailure(error: string) {

@@ -16,7 +16,7 @@
     "type": "email"
   },
   {
-    "key": "password",
+    "key": "pass",
     "autoFocus": true,
     "label": "Password",
     "placeholder": "Minimum 8 characters",

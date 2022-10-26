@@ -17,11 +17,14 @@ export default function Login() {
   const { user, setUser } = useUser();
 
   // Local state
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", pass: "" });
 
   // Properties
   const endPoint = "http://localhost:8000/register/";
   const METHOD = "POST";
+//  const HEADERS = {
+//    'Content-Type': 'application/json'
+//  }
   const HEADERS = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -42,7 +45,7 @@ export default function Login() {
   }
 
   function onSuccess(newUser: any) {  //This was iUser
-    console.log(newUser);
+    console.log("Response" + newUser);
 
     alert("Welcome to Natflix!");
     setUser(newUser);
