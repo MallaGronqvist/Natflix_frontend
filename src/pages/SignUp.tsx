@@ -22,13 +22,14 @@ export default function Login() {
   // Properties
   const endPoint = "http://localhost:8000/register/";
   const METHOD = "POST";
-//  const HEADERS = {
-//    'Content-Type': 'application/json'
-//  }
-  const HEADERS = new Headers({
-    'Accept': 'application/json',
+  const HEADERS = {
     'Content-Type': 'application/json'
-  })
+  }
+  
+//  const HEADERS = new Headers({
+//    'Accept': 'application/json',
+//    'Content-Type': 'application/json'
+//  })
 
   // Methods
   function onSubmit(event: FormEvent): void {
