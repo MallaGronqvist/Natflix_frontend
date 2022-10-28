@@ -3,12 +3,14 @@
 The frontend for project #5 in the TietoEvry Java Course.
 
 # About
+I have replaced the fakeFetches with real fetches to the real server. Remember to start the server before running this frontend. You can find a docker-compose -file in this project. That file can be used to start the containers that are needed for the database in the backend. Further instructions for starting the server are in the readme of the backend. 
 
-This is a dummy frontend meaning that it has hardcoded data. The students must replace the false api calls done using a method called `fakeFetch()` and replace it with the real native `fetch()` method in JavaScript.
+The project has two branches. The main branch connects to the server without user authentication. 
 
-- Every tv-series opens information about Seinfield.
-- Every movie opens information about Public servant.
-- Every documentary opens information about The Last Dance.
+In the other branch called "auth" I have worked on the sign up and sign in -fetches, but due to a problem
+of not getting user data from the server, I have not been able to complete this implementation.
+
+The documentation below has been prepared by Eduardo.
 
 # Installation
 

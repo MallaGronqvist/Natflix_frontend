@@ -33,8 +33,6 @@ export default function Home() {
     .catch((error) => onFailure(error));
    }, []);
 
-   console.log(data);
-
   function onSuccess(data: iContent[]) {
     setData(data);
     setStatus(eStatus.READY);
@@ -49,9 +47,6 @@ export default function Home() {
   if (status === eStatus.LOADING) return <StatusLoading />;
   if (status === eStatus.ERROR) return <StatusError />;
   if (data.length === 0) return <StatusEmpty />;
-
-  console.log(series);
-  console.log(movies);
 
   return (
     <div id="home">
